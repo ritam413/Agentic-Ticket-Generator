@@ -1,7 +1,10 @@
+# netlify.toml - place this at the root of your repo (same level as Frontend/)
+
 [build]
-  base = "Frontend"
-  command = "npm run build"
-  publish = "dist"
+  base = "Frontend"             # Where package.json lives and commands run
+  command = "npm run build"     # Vite build command
+  publish = "dist"              # Serve the build output folder
+  # Package directory is Frontend/ in UI; leave this in UI if required
 
 [[redirects]]
   from = "/*"
