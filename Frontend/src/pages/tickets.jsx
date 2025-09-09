@@ -11,10 +11,10 @@ export default function Tickets() {
     try {
       const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/tickets`, {
         credentials:"include",
-        method: "POST",
+        method: "GET",
       });
       const data = await res.json();
-      setTickets(data.tickets || []);
+      setTickets(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error("Failed to fetch tickets:", err);
     }

@@ -1,4 +1,5 @@
 import { createAgent, gemini } from "@inngest/agent-kit"
+import chalk from "chalk";
 
 const analyseTicket = async (ticket) => {
     const supportAgent = createAgent({
@@ -69,7 +70,10 @@ Description: ${ticket.description}
     raw = raw.replace(/```json/g, "").replace(/```/g, "").trim();
     if(raw){
 
-        console.log("✅ AI parsed JSON ")
+        console.log("✅ AI parsed JSON : ")
+        console.log(chalk.hex("#D400E6")(raw));
+        
+
     }
     try {
         // const match = raw.match(/```json\s*([\s\S]*?)\s*```/i

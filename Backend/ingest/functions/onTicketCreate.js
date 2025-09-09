@@ -4,6 +4,7 @@ import Ticket from "../../models/ticket.model.js"
 import User from "../../models/user.model.js"
 import { sendMail } from "../../utils/mailer.js"
 import analyseTicket from "../../utils/ai.js"
+import { processTicketWithAI } from "../../utils/processTicketWithAI.js"
 
 export const onTicketCreate = inngest.createFunction({
 

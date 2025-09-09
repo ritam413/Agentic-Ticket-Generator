@@ -17,6 +17,8 @@ const ticketSchema = new mongoose.Schema({
         enum: ["open", "in-progress", "resolved", "closed"],
         default: "open",
     },
+    resources: { type: [String], default: [] },
+    followUpQuestions: { type: [String], default: [] },
     priority: {
         type: String,
         enum: ["low", "medium", "high", "urgent"],
@@ -34,9 +36,9 @@ const ticketSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User", // agent working on it
     },
-    deadline:{
-        type:String,
-        
+    deadline: {
+        type: String,
+
     },
     aiHistory: [
         {
@@ -46,10 +48,13 @@ const ticketSchema = new mongoose.Schema({
             createdAt: { type: Date, default: Date.now },
         }
     ],
+    relatedSkills: { type: [String], default: [] },
+    helpfulNotes: { type: [String], default: [] },
+    followUpQuestions: { type: [String], default: [] },
     attachments: [
         {
             url: String,
-            type: { type: String }, // "image", "pdf", "doc", etc.
+            fileType: String, // "image", "pdf", "doc", etc.
         }
     ],
     comments: [
@@ -62,4 +67,3 @@ const ticketSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 export default mongoose.model("Ticket", ticketSchema);
- 
